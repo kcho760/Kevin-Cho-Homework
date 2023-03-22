@@ -8,6 +8,14 @@ def sum_to(n)
     sum = n + sum_to(n-1)
 end
 
+def iter_sum(n)
+    sum = 0
+    (0..n).each do |num|
+        count += num
+    end
+    sum
+end
+
 def add_numbers(nums_arr)
     if nums_arr.length == 0
         return nil
@@ -42,10 +50,6 @@ end
 def reverse(string)
     if string.length == 0
         return ""
-    end
-
-    if string.length == 1
-        return string[-1]
     end
 
     string[-1] + reverse(string[0..-2])
