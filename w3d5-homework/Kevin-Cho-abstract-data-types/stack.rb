@@ -14,4 +14,8 @@ class Stack
     def peek
       return @i[-1]
     end
+
+    def inspect
+      "#<Stack:#{self.object_id}>"
+    end
   end
