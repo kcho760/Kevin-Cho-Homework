@@ -30,22 +30,23 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    # debugger
-    stones = []
-    @cups[start_pos].length.times do 
-      ele = @cups[start_pos].pop
-      stones << ele
+    stones = @cups[start_pos]
+    @cups[start_pos] = []
+  
+    cup_idx = start_pos
+    while !stones.empty?
+      cup_idx += 1
+      cup_idx = 0 if cup_idx > 13
+      if cup_idx == 13 && current_player_name != @name1
+        next
+      end
+      @cups[cup_idx] << stones.pop
     end
-    dupped = stones.dup
-    i = 1
-    while i < dupped.length + 1
-      ele = stones.shift
-      @cups[start_pos+i] << ele
-      i+=1
-    end
-
-
+  
+    render
+    next_turn(cup_idx)
   end
+  
 
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
