@@ -49,7 +49,10 @@ class Board
   
 
   def next_turn(ending_cup_idx)
-    # helper method to determine what #make_move returns
+    if @cups[ending_cup_idx].length == 1
+      return switch
+    end
+    
   end
 
   def render
