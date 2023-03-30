@@ -53,7 +53,11 @@ def clever_octopus(fishes)
     longest
 end
 
-def slow_dance(tiles)
-
+def slow_dance(command,tiles_array)
+    tiles_array.each_with_index do |tile,tentacle|
+        if tile == command
+            return tentacle
+        end
+    end
 end
 # ['fish', 'fiiish', 'fiiiiish', 'fiiiish','fffish', 'ffiiiiisshh', 'fsh','fiiiissshhhhhh']
