@@ -1,7 +1,9 @@
+require "set"
 class LRUCache
   def initialize(size)
       @max_size = size
-      @cache =[]
+      @cache =[].to_set
+
   end
 
   def count
@@ -11,18 +13,18 @@ class LRUCache
 
   def add(el)
     # adds element to cache according to LRU principle
-    if @cache.size < @max_size
-      @cache.push(el)
-    else
-      @cache.shift
-      @cache.push(el)
+    if @cache.size >= @max_size && @cache.include?(el)
+        @cache.delete(el)#something is wrong here. Can't delete element inside set to re-add on top
+    elsif @cache.size >= @max_size
+        @cache.delete(@cache.to_a.first)
     end
+    @cache << el
     @cache
   end
 
   def show
     # shows the items in the cache, with the LRU item first
-    @cache
+    @cache.to_a
   end
 
   private
