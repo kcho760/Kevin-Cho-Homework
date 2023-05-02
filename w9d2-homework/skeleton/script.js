@@ -27,19 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
 //    the examples in the DOM reading does. Check it out for guidance.
 // Remember to use the class names and IDs already set up in the HTML document!
 
-const handleFavoriteSubmit = (e) => {
-  e.preventDefault();
-  const favoriteInput = document.querySelector(".favorite-input");
-  const favorite = favoriteInput.value;
-  favoriteInput.value = "";
-  const newListLi = document.createElement("li");
-  newListLi.textContent = favorite;
-  const favoritesList = document.getElementById("sf-places");
-  favoritesList.appendChild(newListLi);
+const handleFavoriteSubmit = (e) => {//function (e) is parameter
+  e.preventDefault();//prevents submitting the form
+  const favoriteInput = document.querySelector(".favorite-input");//finds the input box
+  const favorite = favoriteInput.value;//saves input typed in
+  favoriteInput.value = "";//? not sure...maybe makes blank box?
+  const newListLi = document.createElement("li");//creates new <li> and saves to variable
+  newListLi.textContent = favorite;//sets previously set const favorite into new <li>
+  const favoritesList = document.getElementById("sf-places");//finds list of sf-places adds to variable
+  favoritesList.appendChild(newListLi);//appends favorite into sf-places
 };
 
-const listSubmitButton = document.querySelector(".favorite-submit");
-listSubmitButton.addEventListener("click", handleFavoriteSubmit);
+const listSubmitButton = document.querySelector(".favorite-submit");//finds submit button and saves
+listSubmitButton.addEventListener("click", handleFavoriteSubmit);//determines what action "click" does
 
 
   // adding new photos
