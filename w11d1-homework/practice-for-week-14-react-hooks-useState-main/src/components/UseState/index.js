@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import './UseState.css';
 
 const UseState = () => {
+    console.log(useState('light'));
   return (
     <div className="state">
       <h1>UseState Component</h1>
